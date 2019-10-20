@@ -1,3 +1,6 @@
+const { assert } = require("chai");
+const ArrayList = require("../src/ArrayList");
+
 describe ('ArrayList', () => {
     it('should be an object', () => {
         const alist = new ArrayList();
@@ -110,7 +113,7 @@ describe('ArrayList.init ()', () =>{
     it('should return size = [1] ',() => {
         const alist = new ArrayList();
         const value = [1];
-        const expectedString = "[]";
+        const expectedString = "[1]";
         const expectedSize = 1;
         const actual = alist.toString();
 
@@ -121,10 +124,10 @@ describe('ArrayList.init ()', () =>{
         assert.deepEqual(alist.toString(),expectedString);
     }); 
 
-    it('should return size = [1,2] ',() => {
+    it('should return size = [1, 2] ',() => {
         const alist = new ArrayList();
-        const value = [1,2];
-        const expectedString = "[]";
+        const value = [1, 2];
+        const expectedString = "[1, 2]";
         const expectedSize = 2;
         const actual = alist.toString();
 
@@ -135,12 +138,12 @@ describe('ArrayList.init ()', () =>{
         assert.deepEqual(alist.toString(),expectedString);
     }); 
 
-    it('should return size = [1,2,3,4,5,6] ',() => {
+    it('should return size = [1, 2, 3, 4, 5, 6] ',() => {
         const alist = new ArrayList();
-        const value = [1,2,3,4,5,6];
-        const expectedString = "[]";
+        const value = [1, 2, 3, 4, 5, 6];
+        const expectedString = "[1, 2, 3, 4, 5, 6]";
         const expectedSize = 6;
-        const actual = alist.toString();
+        
 
 
         alist.init(value);
@@ -260,10 +263,10 @@ describe('shift() returns the first element of ArrayLIst;', () => {
 }); 
 
 describe('ArrayList splice', () => {
-    it('should returns array of deleted elements', () => {
+    it('should return array of deleted elements', () => {
         const aList = new ArrayList();
-        const value = [2, 4, 6, 4];
-        const expected = 2;
+        const value = [2, 4, 6, 5];
+        const expected = [2, 4];
 
         const actual = arList.toSplice(value);
 
@@ -273,7 +276,7 @@ describe('ArrayList splice', () => {
     it('should return empty array', () => {
         const arList = new ArrayList();
         const value = [2, 4];
-        const expected = [empaty];
+        const expected = (undefined);
 
         const actual = arList.toSplice(value);
 
