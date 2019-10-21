@@ -1,18 +1,18 @@
 const { assert } = require ("chai");
-let DoubleList = require ("../src/DoubleList");
+let DoubleLinkedList = require ("../src/DoubleLinkedList");
 
-describe ('DoubleList', () => {
+describe ('DoubleLinkedList', () => {
     it('should be an object', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
 
         assert.isObject(dlist);
 
     });
 });
 
-describe('DoubleList.clear ()', () =>{
+describe('DoubleLinkedList.clear ()', () =>{
     it('should return size = 0 (undefined)',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
@@ -25,7 +25,7 @@ describe('DoubleList.clear ()', () =>{
     }); 
 
     it('should return size = 0 "[]" ',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
@@ -37,7 +37,7 @@ describe('DoubleList.clear ()', () =>{
     });
     
     it('should return size =0 [apple]',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
@@ -49,7 +49,7 @@ describe('DoubleList.clear ()', () =>{
     });
     
     it('should return size =0 [apple, orange]',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
@@ -61,7 +61,7 @@ describe('DoubleList.clear ()', () =>{
     });   
 
     it('should return size =0 [apple]',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
@@ -73,7 +73,7 @@ describe('DoubleList.clear ()', () =>{
     });
 
     it('should return size =0 [apple, orange, grape, lemon, fig, lime]',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
@@ -85,33 +85,33 @@ describe('DoubleList.clear ()', () =>{
     });    
 });
 
-describe('DoubleList.init ()', () =>{
+describe('DoubleLinkedList.init ()', () =>{
     it('should return size = 0 (undefined)',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
 
-        dlist.init();
+        dlist.clear();
 
         assert.deepEqual(dlist.getSize(),expectedSize);
         assert.deepEqual(dlist.toString(),expectedString);
     }); 
 
     it('should return size = [] ',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const expectedString = "[]";
         const expectedSize = 0;
 
 
-        dlist.init();
+        dlist.clear();
 
         assert.deepEqual(dlist.getSize(),expectedSize);
         assert.deepEqual(dlist.toString(),expectedString);
     }); 
 
     it('should return size = [1] ',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1];
         const expectedString = "[1]";
         const expectedSize = 1;
@@ -121,11 +121,11 @@ describe('DoubleList.init ()', () =>{
         dlist.init(value);
 
         assert.deepEqual(dlist.getSize(),expectedSize);
-        assert.deepEqual(dlist.toString(),expectedString);
+        assert.deepEqual(actual,expectedString);
     }); 
 
     it('should return size = [1, 2] ',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1, 2];
         const expectedString = "[1, 2]";
         const expectedSize = 2;
@@ -135,11 +135,11 @@ describe('DoubleList.init ()', () =>{
         dlist.init(value);
 
         assert.deepEqual(dlist.getSize(),expectedSize);
-        assert.deepEqual(dlist.toString(),expectedString);
+        assert.deepEqual(actual,expectedString);
     }); 
 
     it('should return size = [1, 2, 3, 4, 5, 6] ',() => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1, 2, 3, 4, 5, 6];
         const expectedString = "[1, 2, 3, 4, 5, 6]";
         const expectedSize = 6;
@@ -153,9 +153,9 @@ describe('DoubleList.init ()', () =>{
     }); 
 });
 
-describe('DoubleList.push ()', () =>{
-    it('should return size of DoubleList', () => {
-        const dlist = new DoubleList();
+describe('DoubleLinkedList.push ()', () =>{
+    it('should return size of DoubleLinkedList', () => {
+        const dlist = new DoubleLinkedList();
         const expectedString = dlist.toString();
         const expectedSize = 0;
 
@@ -167,8 +167,8 @@ describe('DoubleList.push ()', () =>{
 
     }); 
     
-    it('should return size of DoubleList', () => {
-        const dlist = new DoubleList();
+    it('should return size of DoubleLinkedList', () => {
+        const dlist = new DoubleLinkedList();
         const value = []; 
         const expectedString = dlist.toString();
         const expectedSize = value.length;
@@ -181,7 +181,7 @@ describe('DoubleList.push ()', () =>{
     }); 
 
     it('should expected Array size = 1', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1];
         const expectedString = dlist.toString();
         const expectedSize = value.length;
@@ -195,7 +195,7 @@ describe('DoubleList.push ()', () =>{
     });
 
     it('should expected Array size = 2', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1,2];
         const expectedString = dlist.toString();
         const expectedSize = value.length;
@@ -209,7 +209,7 @@ describe('DoubleList.push ()', () =>{
     });
 
     it('should expected Array size = 5', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1,2,3,4,5];
         const expectedString = dlist.toString();
         const expectedSize = value.length;
@@ -223,13 +223,13 @@ describe('DoubleList.push ()', () =>{
     });
 });
 
-describe('DoubleList.pop()', () => {
+describe('DoubleLinkedList.pop()', () => {
 
     it('delete last element of Array and return it', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [21, 3, 17];
         const last = value.length - 1;
-        const expected = last;
+        const expected = [17];
     
         const actual = dlist.pop(value);
     
@@ -237,9 +237,9 @@ describe('DoubleList.pop()', () => {
     });
 });
 
-describe('unshift(number) returns new size of DoubleList', () => {
+describe('unshift(number) returns new size of DoubleLinkedList', () => {
     it('should returns new size', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = 5;
         const expectedSize = dlist.unshift();
 
@@ -249,9 +249,9 @@ describe('unshift(number) returns new size of DoubleList', () => {
     });
 });
 
-describe('shift() returns the first element of DoubleList;', () => {
+describe('shift() returns the first element of DoubleLinkedList;', () => {
     it('should returns the first element', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [1, 2, 3];
         const first = value[0];
         const expected = 1;
@@ -263,9 +263,9 @@ describe('shift() returns the first element of DoubleList;', () => {
     });
 }); 
 
-describe('DoubleList splice', () => {
+describe('DoubleLinkedList splice', () => {
     it('should returns array of deleted elements', () => {
-        const dlist = new DoubleList();
+        const dlist = new DoubleLinkedList();
         const value = [2, 4, 6, 5];
         const expected = [2, 4];
 
@@ -275,12 +275,24 @@ describe('DoubleList splice', () => {
     });
 
     it('should return empty array', () => {
-        const arList = new DoubleList();
+        const arList = new DoubleLinkedList();
         const value = [2, 4];
         const expected = (undefined);
 
         const actual = arList.toSplice(value);
 
         assert.deepEqual(actual, expected);
+    });
+});
+
+describe('DoubleLinkedList slice', () => {
+    it('should return copy first two element', () => {
+        const dList = new DoubleLinkedList();
+        const value = [2, 4, 6, 8];
+        const expectedSlice = [2, 4];
+
+        actual = dList.toSlice(value);
+
+        assert.deepEqual(actual, expectedSlice);
     });
 });

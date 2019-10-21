@@ -54,15 +54,16 @@ this._array[i] = arr[i];
     }
 }
 
-ArrayList.prototype.pop = function(arr) {
-    if(Array.isArray(arr)){
-        let last = arr.length -1;
-        arr.length = last;
+ArrayList.prototype.pop = function(value) {
+    if(Array.isArray(value)){
+        let last = value.length -1;
+        value.length = last;
     }
     return value.length;
-}
+};
+
 ArrayList.prototype.unshift = function(arr) {
-    if(value===undefined) return undefined;
+    if(arr===undefined) return undefined;
     tempArr = [arr];
 
     if(Array.isArray(arr)){
@@ -73,18 +74,17 @@ ArrayList.prototype.unshift = function(arr) {
             return tempArr.length;
         }
     }
-}
+};
 
 ArrayList.prototype.shift =  function(arr) {
     if(Array.isArray(arr)){
-        let first = value[0];
+        let first = arr[0];
         let tempArr = [];
         for(let i = 1; i < arr.length; i++){
             tempArr[i - 1] = arr[i];
         }
         return first;  
     }
-}
-
+};
 module.exports = ArrayList;
 
