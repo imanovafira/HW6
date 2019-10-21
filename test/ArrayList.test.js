@@ -1,3 +1,6 @@
+const { assert } = require("chai");
+const ArrayList = require("../src/ArrayList");
+
 describe ('ArrayList', () => {
     it('should be an object', () => {
         const alist = new ArrayList();
@@ -110,7 +113,7 @@ describe('ArrayList.init ()', () =>{
     it('should return size = [1] ',() => {
         const alist = new ArrayList();
         const value = [1];
-        const expectedString = "[]";
+        const expectedString = "[1]";
         const expectedSize = 1;
         const actual = alist.toString();
 
@@ -121,10 +124,10 @@ describe('ArrayList.init ()', () =>{
         assert.deepEqual(alist.toString(),expectedString);
     }); 
 
-    it('should return size = [1,2] ',() => {
+    it('should return size = [1, 2] ',() => {
         const alist = new ArrayList();
-        const value = [1,2];
-        const expectedString = "[]";
+        const value = [1, 2];
+        const expectedString = "[1, 2]";
         const expectedSize = 2;
         const actual = alist.toString();
 
@@ -135,12 +138,12 @@ describe('ArrayList.init ()', () =>{
         assert.deepEqual(alist.toString(),expectedString);
     }); 
 
-    it('should return size = [1,2,3,4,5,6] ',() => {
+    it('should return size = [1, 2, 3, 4, 5, 6] ',() => {
         const alist = new ArrayList();
-        const value = [1,2,3,4,5,6];
-        const expectedString = "[]";
+        const value = [1, 2, 3, 4, 5, 6];
+        const expectedString = "[1, 2, 3, 4, 5, 6]";
         const expectedSize = 6;
-        const actual = alist.toString();
+        
 
 
         alist.init(value);
@@ -221,7 +224,7 @@ describe('ArrayList.push ()', () =>{
 });
 
 describe('ArrayList.pop()', () => {
-
+    
     it('delete last element of Array and return it', () => {
         const alist = new ArrayList();
         const value = [21, 3, 17];
@@ -231,7 +234,7 @@ describe('ArrayList.pop()', () => {
         const actual = alist.pop(value);
     
         assert.deepEqual(actual, expected);
-    });
+    });   
 });
 
 describe('unshift(number) returns new size of ArrayList', () => {
@@ -246,7 +249,7 @@ describe('unshift(number) returns new size of ArrayList', () => {
     });
 });
 
-describe('shift() returns the first element of ArrayLIst;', () => {
+describe('shift() returns the first element of ArrayList;', () => {
     it('should returns the first element', () => {
         const aList = new ArrayList();
         const value = [1, 2, 3];
@@ -260,23 +263,71 @@ describe('shift() returns the first element of ArrayLIst;', () => {
 }); 
 
 describe('ArrayList splice', () => {
-    it('should returns array of deleted elements', () => {
+    it('should return array of deleted elements', () => {
         const aList = new ArrayList();
-        const value = [2, 4, 6, 4];
-        const expected = 2;
+        const value = [2, 4, 6, 5];
+        const expected = [2, 4];
 
-        const actual = arList.toSplice(value);
+        const actual = aList.toSplice(value);
 
         assert.deepEqual(actual, expected);
     });
 
     it('should return empty array', () => {
-        const arList = new ArrayList();
+        const aList = new ArrayList();
         const value = [2, 4];
-        const expected = [empaty];
+        const expected = (undefined);
 
-        const actual = arList.toSplice(value);
+        const actual = aList.toSplice(value);
 
         assert.deepEqual(actual, expected);
+    });
+});
+
+
+describe('ArrayList slice', () => {
+    it('should return copy first two element', () => {
+        const aList = new ArrayList();
+        const value = [2, 4, 6, 8];
+        const expectedSlice = [2, 4];
+
+        actual = aList.toSlice(value);
+
+        assert.deepEqual(actual, expectedSlice);
+    });
+});
+
+
+describe('ArrayList splice', () => {
+    it('should returns array of deleted elements', () => {
+        const aList = new ArrayList();
+        const value = [2, 4, 6, 4];
+        const expected = (2, 4);
+
+        const actual = aList.toSplice(value);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return empty array', () => {
+        const aList = new ArrayList();
+        const value = [2, 1];
+        const expected = undefined;
+
+        const actual = aList.toSplice(value);
+
+        assert.deepEqual(actual, expected);
+    });
+});
+
+describe('sort(function(first, seconod)', () => {
+    it('should sorts the array in place', () => {
+        const aList = new ArrayList();
+        const value = [3, 1, 5, 2];
+        const expected = [1, 2, 3, 5];
+
+        const actual = aList.toSort(value);
+
+        assert.deepEqual(actual, expected); 
     });
 });
